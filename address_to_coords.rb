@@ -9,9 +9,8 @@ the_address = gets.chomp
 # Replaces spaces and other URL-illegal characters in the string
 url_safe_address = URI.encode(the_address)
 
-# Your code goes below. Hints:
-address = 'the+corner+of+foster+and+sheridan'
-url_of_data_we_want = "http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false"
+# Get the URL
+url_of_data_we_want = "http://maps.googleapis.com/maps/api/geocode/json?address=#{url_safe_address}&sensor=false"
 raw_data = open(url_of_data_we_want).read
 
 parsed_data = JSON.parse(raw_data)
